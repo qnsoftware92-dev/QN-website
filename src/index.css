@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "swiper/css";
+
+:root {
+  --main-header: #111111;
+  --background: #000000;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@theme {
+  --color-primary: #3ac2da;
+  --color-secondary: #000000;
+  --color-background: #fafafa;
+}
