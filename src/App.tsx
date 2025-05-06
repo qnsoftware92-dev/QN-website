@@ -9,7 +9,7 @@ import Footer from "./component/Footer";
 import Service from "./component/Service";
 import Contact from "./component/Contact";
 import Member from "./component/Member";
-import WhatDidWeDo from "./component/Section_WhatDidWeDo";
+import VideoBanner from "./newComponent/banner";
 function App() {
   const [activeNav, setActiveNav] = useState("");
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -48,32 +48,7 @@ function App() {
 
   return (
     <>
-      <Header
-        activeNav={activeNav}
-        setActiveNav={(nav) => {
-          setActiveNav(nav);
-          scrollToSection(nav);
-        }}
-      />
-      <div ref={bannerRef}>
-        <Banner />
-      </div>
-      <div ref={aboutUsRef}>
-        <Member />
-        <Products />
-        <AboutUs />
-      </div>
-      <div ref={serviceRef}>
-        <Service />
-        <ProviderEngineer />
-      </div>
-      <div ref={contactRef}>
-        <Contact />
-      </div>
-      <Footer setActiveNav={(nav) => {
-        setActiveNav(nav);
-        scrollToSection(nav);
-      }} />
+    <VideoBanner />
     </>
   );
 }

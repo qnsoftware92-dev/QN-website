@@ -1,5 +1,6 @@
 import Bruce from "../assets/Bruce.jpg";
 import Dragon from "../assets/Dragon.jpg";
+import Cool from "../assets/Cool.jpg";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -13,6 +14,11 @@ const list = [
   {
     name: "Dragon",
     image: Dragon,
+    title: "Full Stack Developer",
+  },
+  {
+    name: "Cool",
+    image: Cool,
     title: "Full Stack Developer",
   },
 ];
