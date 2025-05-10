@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 import { motion } from "motion/react";
+import useEmblaCarousel from "embla-carousel-react";
+import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 const videoData = [
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/img2.6315c6c5.jpg",
@@ -293,204 +295,10 @@ export default function ReferenceVideo() {
   );
 
   const ContentBody = () => (
-    // <motion.div
-    //   className="mt-8 w-full max-w-[1000px] overflow-hidden rounded-xl"
-    //   initial={{ opacity: 0, y: 100 }}
-    //   whileInView={{ opacity: 1, y: 0 }}
-    //   transition={{ duration: 1 }}
-    //   viewport={{ once: true }}
-    // >
-    //   <div className="flex items-center justify-center gap-8">
-    //     <button
-    //       className="flex h-[228px] cursor-pointer items-start"
-    //       onClick={() => swiperRef.current?.slidePrev()}
-    //     >
-    //       <svg
-    //         width="1em"
-    //         height="1em"
-    //         fill="#ffffff"
-    //         viewBox="0 0 24 24"
-    //         xmlns="http://www.w3.org/2000/svg"
-    //         className="size-10"
-    //       >
-    //         <path
-    //           d="M15.5 19L8 12L15.5 5"
-    //           stroke="currentColor"
-    //           strokeLinecap="round"
-    //           strokeLinejoin="round"
-    //           strokeWidth="2"
-    //         />
-    //       </svg>
-    //     </button>
-
-    //     <div className="relative overflow-hidden rounded-xl">
-    //       <Swiper
-    //         onSwiper={(swiper) => (swiperRef.current = swiper)}
-    //         loop={true}
-    //         className="flex"
-    //       >
-    //         {videoData.map((video) => (
-    //           <SwiperSlide key={video.id}>
-    //             <div className="relative mx-0 flex min-w-full shrink-0 grow-0 basis-full flex-col items-center justify-center">
-    //               <div className="flex w-full flex-col">
-    //                 <div className="relative w-full">
-    //                   <video
-    //                     id={video.id}
-    //                     poster={video.poster}
-    //                     webkit-playsinline="true"
-    //                     x5-playsinline="true"
-    //                     playsInline
-    //                     autoPlay
-    //                     muted
-    //                     loop
-    //                     className="aspect-video w-full rounded-xl object-cover object-center max-md:rounded-none"
-    //                   >
-    //                     <source src={video.video} type="video/mp4" />
-    //                   </video>
-
-    //                   <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
-    //                     <div className="flex flex-col items-center justify-center">
-    //                       <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-[6px] max-md:p-[5px]">
-    //                         {video.images.map((image, index) => (
-    //                           <>
-    //                             <img
-    //                               key={`img-${index}`}
-    //                               src={image}
-    //                               alt={`poster-${index}`}
-    //                               className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
-    //                             />
-    //                             {index < video.images.length - 1 && (
-    //                               <div
-    //                                 key={`plus-${index}`}
-    //                                 className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
-    //                               >
-    //                                 <svg
-    //                                   width="1rem"
-    //                                   height="1rem"
-    //                                   fill="none"
-    //                                   viewBox="0 0 25 25"
-    //                                   xmlns="http://www.w3.org/2000/svg"
-    //                                   className="size-4 max-md:size-[7px]"
-    //                                 >
-    //                                   <path
-    //                                     d="M12.28 5.96875L12.2617 19.9688"
-    //                                     stroke="currentColor"
-    //                                     strokeLinecap="round"
-    //                                     strokeLinejoin="round"
-    //                                     strokeWidth="2"
-    //                                   />
-    //                                   <path
-    //                                     d="M5.25 12.9688H19.25"
-    //                                     stroke="currentColor"
-    //                                     strokeLinecap="round"
-    //                                     strokeLinejoin="round"
-    //                                     strokeWidth="2"
-    //                                   />
-    //                                 </svg>
-    //                               </div>
-    //                             )}
-    //                           </>
-    //                         ))}
-    //                       </div>
-    //                     </div>
-    //                     <div className="absolute top-0 z-10 flex w-full origin-bottom scale-y-[-1] items-center justify-center blur-[8px]">
-    //                       <div className="flex items-center justify-center gap-1 rounded-4 p-3 max-md:gap-[2px] max-md:rounded-[3px] max-md:p-[5px]">
-    //                         {video.images.map((image, index) => (
-    //                           <>
-    //                             <img
-    //                               key={`blur-img-${index}`}
-    //                               src={image}
-    //                               alt={`poster-${index}`}
-    //                               className="max-h-[84px] w-auto rounded-8 object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
-    //                             />
-    //                             {index < video.images.length - 1 && (
-    //                               <div
-    //                                 key={`blur-plus-${index}`}
-    //                                 className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
-    //                               >
-    //                                 <svg
-    //                                   width="16px"
-    //                                   height="16px"
-    //                                   fill="none"
-    //                                   viewBox="0 0 25 25"
-    //                                   xmlns="http://www.w3.org/2000/svg"
-    //                                   className="size-4 max-md:size-[7px]"
-    //                                 >
-    //                                   <path
-    //                                     d="M12.28 5.96875L12.2617 19.9688"
-    //                                     stroke="currentColor"
-    //                                     strokeLinecap="round"
-    //                                     strokeLinejoin="round"
-    //                                     strokeWidth="2"
-    //                                   />
-    //                                   <path
-    //                                     d="M5.25 12.9688H19.25"
-    //                                     stroke="currentColor"
-    //                                     strokeLinecap="round"
-    //                                     strokeLinejoin="round"
-    //                                     strokeWidth="2"
-    //                                   />
-    //                                 </svg>
-    //                               </div>
-    //                             )}
-    //                           </>
-    //                         ))}
-    //                       </div>
-    //                     </div>
-    //                   </div>
-    //                   <div className="relative h-40 w-full max-md:h-16">
-    //                     <div className="relative z-0 h-full w-full overflow-hidden opacity-[0.48]">
-    //                       <video
-    //                         poster={video.poster}
-    //                         webkit-playsinline="true"
-    //                         x5-playsinline="true"
-    //                         playsInline
-    //                         autoPlay
-    //                         muted
-    //                         loop
-    //                         className="w-full scale-y-[-1] blur-[30px] max-md:blur-[15px]"
-    //                       >
-    //                         <source src={video.video} type="video/mp4" />
-    //                       </video>
-    //                     </div>
-    //                   </div>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </SwiperSlide>
-    //         ))}
-    //       </Swiper>
-    //       <div className="pointer-events-none absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent">
-    //         <div className="absolute top-0 left-0 h-full w-40 bg-gradient-to-r from-black to-transparent" />
-    //         <div className="absolute top-0 right-0 h-full w-40 bg-gradient-to-l from-black to-transparent" />
-    //         <div className="absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black to-transparent" />
-    //       </div>
-    //     </div>
-
-    //     <button
-    //       className="flex h-[228px] cursor-pointer items-start"
-    //       onClick={() => swiperRef.current?.slideNext()}
-    //     >
-    //       <svg
-    //         width="1em"
-    //         height="1em"
-    //         fill="#ffffff"
-    //         viewBox="0 0 24 24"
-    //         xmlns="http://www.w3.org/2000/svg"
-    //         className="size-10"
-    //       >
-    //         <path
-    //           d="M8.5 5L16 12L8.5 19"
-    //           stroke="currentColor"
-    //           strokeLinecap="round"
-    //           strokeLinejoin="round"
-    //           strokeWidth="2"
-    //         />
-    //       </svg>
-    //     </button>
-    //   </div>
-    // </motion.div>
-    <ContentBodyItem listItem={videoData} swiperRef={swiperRef} />
+    <>
+    <ContentBodyItem listItem={videoData} />
+    <ContentBodyItemMobile items={videoData} />
+    </>
   );
 
   const ContentFooter2 = () => (
@@ -542,140 +350,11 @@ export default function ReferenceVideo() {
   );
 
   const ContentBody2 = () => (
-    <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-      className="mt-8 w-full max-w-[1000px] overflow-hidden rounded-xl"
-    >
-      <div className="flex items-center justify-center gap-8">
-        <div
-          className="flex h-[228px] cursor-pointer items-start"
-          onClick={() => swiperRef2.current?.slidePrev()}
-        >
-          <svg
-            width="1em"
-            height="1em"
-            fill="#ffffff"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-10"
-          >
-            <path
-              d="M15.5 19L8 12L15.5 5"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
+    <>    
+    <ContentBodyItem listItem={imageToVideoData} />
+    <ContentBodyItemMobile items={imageToVideoData} />
+    </>
 
-        <div className="relative overflow-hidden rounded-xl">
-          <Swiper
-            onSwiper={(swiper) => (swiperRef2.current = swiper)}
-            className="flex"
-          >
-            {imageToVideoData.map((item) => (
-              <SwiperSlide
-                key={item.id}
-                className="relative flex min-w-full shrink-0 grow-0 basis-full flex-col items-center justify-center"
-              >
-                <div className="flex w-full flex-col">
-                  <div className="relative w-full">
-                    <video
-                      id={item.id}
-                      poster={item.poster}
-                      muted
-                      playsInline
-                      webkit-playsinline="true"
-                      x5-playsinline="true"
-                      className="aspect-video w-full rounded-xl object-cover object-center max-md:rounded-none"
-                    >
-                      <source src={item.video} type="video/mp4" />
-                    </video>
-
-                    <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-md max-md:p-[5px]">
-                          <img
-                            src={item.images[0]}
-                            alt="poster-0"
-                            className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
-                          />
-                          <div className="flex h-[88px] w-[88px] items-center justify-center max-md:size-[10px]">
-                            <img
-                              alt="lineArrow"
-                              loading="lazy"
-                              width="88"
-                              height="88"
-                              decoding="async"
-                              data-nimg="1"
-                              className="size-[88px] max-md:size-[10px]"
-                              style={{ color: "transparent" }}
-                              src="https://www.vidu.com/_next/static/media/lineArrow.d9b43180.png"
-                            />
-                          </div>
-                          <img
-                            src={item.images[1]}
-                            alt="poster-1"
-                            className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative h-40 w-full max-md:h-16">
-                      <div className="relative z-0 h-full w-full overflow-hidden opacity-[0.48]">
-                        <video
-                          poster={item.poster}
-                          muted
-                          playsInline
-                          webkit-playsinline="true"
-                          x5-playsinline="true"
-                          className="w-full scale-y-[-1] rounded-xl blur-[30px] max-md:blur-[15px]"
-                        >
-                          <source src={item.video} type="video/mp4" />
-                        </video>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          <div className="pointer-events-none absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent">
-            <div className="absolute top-0 left-0 h-full w-40 bg-gradient-to-r from-black to-transparent" />
-            <div className="absolute top-0 right-0 h-full w-40 bg-gradient-to-l from-black to-transparent" />
-            <div className="absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black to-transparent" />
-          </div>
-        </div>
-
-        <div
-          className="flex h-[228px] cursor-pointer items-start"
-          onClick={() => swiperRef2.current?.slideNext()}
-        >
-          <svg
-            width="1em"
-            height="1em"
-            fill="#ffffff"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-10"
-          >
-            <path
-              d="M8.5 5L16 12L8.5 19"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
-      </div>
-    </motion.div>
   );
 
   return (
@@ -852,7 +531,6 @@ const HeaderItem = ({
 
 const ContentBodyItem = ({
   listItem,
-  swiperRef,
 }: {
   listItem: {
     id: string;
@@ -860,186 +538,375 @@ const ContentBodyItem = ({
     video: string;
     images: string[];
   }[];
-  swiperRef: React.RefObject<Swiper>;
-}) => (
-  <motion.div
-    initial={{ opacity: 0, y: 100 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-    viewport={{ once: true }}
-    className="mt-8 w-full max-w-[1000px] overflow-hidden rounded-xl"
-  >
-    <div className="flex items-center justify-center gap-8">
-      <div
-        className="flex h-[228px] cursor-pointer items-start"
-        onClick={() => swiperRef.current?.slidePrev()}
-      >
-        <svg
-          width="1em"
-          height="1em"
-          fill="#ffffff"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-10"
-        >
-          <path
-            d="M15.5 19L8 12L15.5 5"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-          />
-        </svg>
-      </div>
+}) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    containScroll: "trimSnaps",
+  });
+  const { prevBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="mt-8 w-full max-w-[1000px] overflow-hidden rounded-xl max-md:hidden"
+    >
+      <div className="flex items-center justify-center gap-8">
+ 
+        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+        <div className="relative overflow-hidden rounded-xl" ref={emblaRef}>
+          <div className="flex">
+            {listItem.map((item) => (
+              <div
+                key={item.id}
+                className="relative flex min-w-full shrink-0 grow-0 basis-full flex-col items-center justify-center"
+              >
+                <div className="flex w-full flex-col">
+                  <div className="relative w-full">
+                    <video
+                      id={item.id}
+                      poster={item.poster}
+                      muted
+                      playsInline
+                      webkit-playsinline="true"
+                      x5-playsinline="true"
+                      className="aspect-video w-full rounded-xl object-cover object-center max-md:rounded-none"
+                    >
+                      <source src={item.video} type="video/mp4" />
+                    </video>
 
-      <div className="relative overflow-hidden rounded-xl">
-        <Swiper
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className="flex"
-        >
-          {listItem.map((item) => (
-            <SwiperSlide
+                    {item.images.length === 2 && (
+                      <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
+                        <div className="flex flex-col items-center justify-center">
+                          <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-md max-md:p-[5px]">
+                            <img
+                              src={item.images[0]}
+                              alt="poster-0"
+                              className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
+                            />
+                            <div className="flex h-[88px] w-[88px] items-center justify-center max-md:size-[10px]">
+                              <img
+                                alt="lineArrow"
+                                loading="lazy"
+                                width="88"
+                                height="88"
+                                decoding="async"
+                                data-nimg="1"
+                                className="size-[88px] max-md:size-[10px]"
+                                style={{ color: "transparent" }}
+                                src="https://www.vidu.com/_next/static/media/lineArrow.d9b43180.png"
+                              />
+                            </div>
+                            <img
+                              src={item.images[1]}
+                              alt="poster-1"
+                              className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {item.images.length > 2 && (
+                      <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
+                        <div className="flex flex-col items-center justify-center">
+                          <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-[6px] max-md:p-[5px]">
+                            {item.images.map((image, index) => (
+                              <>
+                                <img
+                                  key={`img-${index}`}
+                                  src={image}
+                                  alt={`poster-${index}`}
+                                  className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
+                                />
+                                {index < item.images.length - 1 && (
+                                  <div
+                                    key={`plus-${index}`}
+                                    className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
+                                  >
+                                    <svg
+                                      width="1rem"
+                                      height="1rem"
+                                      fill="none"
+                                      viewBox="0 0 25 25"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="size-4 max-md:size-[7px]"
+                                    >
+                                      <path
+                                        d="M12.28 5.96875L12.2617 19.9688"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                      <path
+                                        d="M5.25 12.9688H19.25"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                    </svg>
+                                  </div>
+                                )}
+                              </>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="absolute top-0 z-10 flex w-full origin-bottom scale-y-[-1] items-center justify-center blur-[8px]">
+                          <div className="flex items-center justify-center gap-1 rounded-4 p-3 max-md:gap-[2px] max-md:rounded-[3px] max-md:p-[5px]">
+                            {item.images.map((image, index) => (
+                              <>
+                                <img
+                                  key={`blur-img-${index}`}
+                                  src={image}
+                                  alt={`poster-${index}`}
+                                  className="max-h-[84px] w-auto rounded-8 object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
+                                />
+                                {index < item.images.length - 1 && (
+                                  <div
+                                    key={`blur-plus-${index}`}
+                                    className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
+                                  >
+                                    <svg
+                                      width="16px"
+                                      height="16px"
+                                      fill="none"
+                                      viewBox="0 0 25 25"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="size-4 max-md:size-[7px]"
+                                    >
+                                      <path
+                                        d="M12.28 5.96875L12.2617 19.9688"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                      <path
+                                        d="M5.25 12.9688H19.25"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                    </svg>
+                                  </div>
+                                )}
+                              </>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="relative h-40 w-full max-md:h-16">
+                      <div className="relative z-0 h-full w-full overflow-hidden opacity-[0.48]">
+                        <video
+                          poster={item.poster}
+                          muted
+                          playsInline
+                          webkit-playsinline="true"
+                          x5-playsinline="true"
+                          className="w-full scale-y-[-1] rounded-xl blur-[30px] max-md:blur-[15px]"
+                        >
+                          <source src={item.video} type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="pointer-events-none absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent">
+            <div className="absolute top-0 left-0 h-full w-40 bg-gradient-to-r from-black to-transparent" />
+            <div className="absolute top-0 right-0 h-full w-40 bg-gradient-to-l from-black to-transparent" />
+            <div className="absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black to-transparent" />
+          </div>
+        </div>
+
+        <NextButton onClick={onNextButtonClick}/>
+      </div>
+    </motion.div>
+  );
+  };
+
+
+const ContentBodyItemMobile = (
+  {
+    items,
+  }: {
+    items: {
+      id: string;
+      poster: string;
+      video: string;
+      images: string[];
+    }[];
+  }
+) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    containScroll: "trimSnaps",
+  });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="flex gap-8 hidden max-:flex"
+    >
+      <div className="relative overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {items.map((item) => (
+            <div
               key={item.id}
-              className="relative flex min-w-full shrink-0 grow-0 basis-full flex-col items-center justify-center"
+              className="relative flex min-w-full shrink-0 grow-0 basis-full flex-col items-center justify-center p-4 max-md:p-0"
             >
               <div className="flex w-full flex-col">
                 <div className="relative w-full">
                   <video
-                    id={item.id}
+                    id={`video-${item.poster}`}
                     poster={item.poster}
                     muted
                     playsInline
                     webkit-playsinline="true"
                     x5-playsinline="true"
-                    className="aspect-video w-full rounded-xl object-cover object-center max-md:rounded-none"
+                    className="aspect-video w-full rounded-12 object-cover object-center max-md:rounded-none"
                   >
                     <source src={item.video} type="video/mp4" />
                   </video>
 
                   {item.images.length === 2 && (
-                    <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-md max-md:p-[5px]">
-                          <img
-                            src={item.images[0]}
-                            alt="poster-0"
-                            className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
-                          />
-                          <div className="flex h-[88px] w-[88px] items-center justify-center max-md:size-[10px]">
+                      <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
+                        <div className="flex flex-col items-center justify-center">
+                          <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-md max-md:p-[5px]">
                             <img
-                              alt="lineArrow"
-                              loading="lazy"
-                              width="88"
-                              height="88"
-                              decoding="async"
-                              data-nimg="1"
-                              className="size-[88px] max-md:size-[10px]"
-                              style={{ color: "transparent" }}
-                              src="https://www.vidu.com/_next/static/media/lineArrow.d9b43180.png"
+                              src={item.images[0]}
+                              alt="poster-0"
+                              className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
+                            />
+                            <div className="flex h-[88px] w-[88px] items-center justify-center max-md:size-[10px]">
+                              <img
+                                alt="lineArrow"
+                                loading="lazy"
+                                width="88"
+                                height="88"
+                                decoding="async"
+                                data-nimg="1"
+                                className="size-[88px] max-md:size-[10px]"
+                                style={{ color: "transparent" }}
+                                src="https://www.vidu.com/_next/static/media/lineArrow.d9b43180.png"
+                              />
+                            </div>
+                            <img
+                              src={item.images[1]}
+                              alt="poster-1"
+                              className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
                             />
                           </div>
-                          <img
-                            src={item.images[1]}
-                            alt="poster-1"
-                            className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-sm"
-                          />
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {item.images.length > 2 && (
-                    <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-[6px] max-md:p-[5px]">
-                          {item.images.map((image, index) => (
-                            <>
-                              <img
-                                key={`img-${index}`}
-                                src={image}
-                                alt={`poster-${index}`}
-                                className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
-                              />
-                              {index < item.images.length - 1 && (
-                                <div
-                                  key={`plus-${index}`}
-                                  className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
-                                >
-                                  <svg
-                                    width="1rem"
-                                    height="1rem"
-                                    fill="none"
-                                    viewBox="0 0 25 25"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="size-4 max-md:size-[7px]"
+                    {item.images.length > 2 && (
+                      <div className="absolute right-0 bottom-[110px] left-0 z-10 max-md:bottom-10">
+                        <div className="flex flex-col items-center justify-center">
+                          <div className="flex items-center justify-center gap-1 rounded-2xl bg-system-black64 p-3 backdrop-blur-[30px] max-md:gap-[2px] max-md:rounded-[6px] max-md:p-[5px]">
+                            {item.images.map((image, index) => (
+                              <>
+                                <img
+                                  key={`img-${index}`}
+                                  src={image}
+                                  alt={`poster-${index}`}
+                                  className="max-h-[84px] w-auto rounded-lg object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
+                                />
+                                {index < item.images.length - 1 && (
+                                  <div
+                                    key={`plus-${index}`}
+                                    className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
                                   >
-                                    <path
-                                      d="M12.28 5.96875L12.2617 19.9688"
-                                      stroke="currentColor"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth="2"
-                                    />
-                                    <path
-                                      d="M5.25 12.9688H19.25"
-                                      stroke="currentColor"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth="2"
-                                    />
-                                  </svg>
-                                </div>
-                              )}
-                            </>
-                          ))}
+                                    <svg
+                                      width="1rem"
+                                      height="1rem"
+                                      fill="none"
+                                      viewBox="0 0 25 25"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="size-4 max-md:size-[7px]"
+                                    >
+                                      <path
+                                        d="M12.28 5.96875L12.2617 19.9688"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                      <path
+                                        d="M5.25 12.9688H19.25"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                    </svg>
+                                  </div>
+                                )}
+                              </>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="absolute top-0 z-10 flex w-full origin-bottom scale-y-[-1] items-center justify-center blur-[8px]">
+                          <div className="flex items-center justify-center gap-1 rounded-4 p-3 max-md:gap-[2px] max-md:rounded-[3px] max-md:p-[5px]">
+                            {item.images.map((image, index) => (
+                              <>
+                                <img
+                                  key={`blur-img-${index}`}
+                                  src={image}
+                                  alt={`poster-${index}`}
+                                  className="max-h-[84px] w-auto rounded-8 object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
+                                />
+                                {index < item.images.length - 1 && (
+                                  <div
+                                    key={`blur-plus-${index}`}
+                                    className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
+                                  >
+                                    <svg
+                                      width="16px"
+                                      height="16px"
+                                      fill="none"
+                                      viewBox="0 0 25 25"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      className="size-4 max-md:size-[7px]"
+                                    >
+                                      <path
+                                        d="M12.28 5.96875L12.2617 19.9688"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                      <path
+                                        d="M5.25 12.9688H19.25"
+                                        stroke="currentColor"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                      />
+                                    </svg>
+                                  </div>
+                                )}
+                              </>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      <div className="absolute top-0 z-10 flex w-full origin-bottom scale-y-[-1] items-center justify-center blur-[8px]">
-                        <div className="flex items-center justify-center gap-1 rounded-4 p-3 max-md:gap-[2px] max-md:rounded-[3px] max-md:p-[5px]">
-                          {item.images.map((image, index) => (
-                            <>
-                              <img
-                                key={`blur-img-${index}`}
-                                src={image}
-                                alt={`poster-${index}`}
-                                className="max-h-[84px] w-auto rounded-8 object-contain max-md:max-h-[42px] max-md:rounded-[4px]"
-                              />
-                              {index < item.images.length - 1 && (
-                                <div
-                                  key={`blur-plus-${index}`}
-                                  className="flex h-6 w-6 items-center justify-center rounded-full bg-system-white24 max-md:size-[10px]"
-                                >
-                                  <svg
-                                    width="16px"
-                                    height="16px"
-                                    fill="none"
-                                    viewBox="0 0 25 25"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="size-4 max-md:size-[7px]"
-                                  >
-                                    <path
-                                      d="M12.28 5.96875L12.2617 19.9688"
-                                      stroke="currentColor"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth="2"
-                                    />
-                                    <path
-                                      d="M5.25 12.9688H19.25"
-                                      stroke="currentColor"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth="2"
-                                    />
-                                  </svg>
-                                </div>
-                              )}
-                            </>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                    )}
 
                   <div className="relative h-40 w-full max-md:h-16">
                     <div className="relative z-0 h-full w-full overflow-hidden opacity-[0.48]">
@@ -1049,7 +916,7 @@ const ContentBodyItem = ({
                         playsInline
                         webkit-playsinline="true"
                         x5-playsinline="true"
-                        className="w-full scale-y-[-1] rounded-xl blur-[30px] max-md:blur-[15px]"
+                        className="w-full scale-y-[-1] blur-[30px] max-md:blur-[15px]"
                       >
                         <source src={item.video} type="video/mp4" />
                       </video>
@@ -1057,38 +924,16 @@ const ContentBodyItem = ({
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
 
-        <div className="pointer-events-none absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent">
-          <div className="absolute top-0 left-0 h-full w-40 bg-gradient-to-r from-black to-transparent" />
-          <div className="absolute top-0 right-0 h-full w-40 bg-gradient-to-l from-black to-transparent" />
-          <div className="absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black to-transparent" />
+        <div className="pointer-events-none absolute bottom-0 z-10 h-16 w-full bg-gradient-to-t from-black to-transparent">
+          <div className="absolute top-0 left-0 h-full w-10 bg-gradient-to-r from-black to-transparent" />
+          <div className="absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-black to-transparent" />
+          <div className="absolute bottom-0 left-0 h-16 w-full bg-gradient-to-t from-black to-transparent" />
         </div>
       </div>
-
-      <div
-        className="flex h-[228px] cursor-pointer items-start"
-        onClick={() => swiperRef.current?.slideNext()}
-      >
-        <svg
-          width="1em"
-          height="1em"
-          fill="#ffffff"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-10"
-        >
-          <path
-            d="M8.5 5L16 12L8.5 19"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-          />
-        </svg>
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  )
+};

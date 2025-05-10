@@ -14,10 +14,28 @@ export default function Banner() {
     },
     {
       id: 2,
-      image: "https://image01.cf.vidu.studio/vidu/landing-page/girl.49bc5b0b.png", 
-      alt: "视频封面",
+      image: "https://image01.cf.vidu.studio/vidu/landing-page/girl.49bc5b0b.png",
+      alt: "视频封面", 
       video: "https://image01.cf.vidu.studio/vidu/landing-page/girl.6e936562.mp4",
     },
+    {
+      id: 3,
+      image: "https://image01.cf.vidu.studio/vidu/landing-page/home1.d24295c9.png",
+      alt: "视频封面",
+      video: "https://image01.cf.vidu.studio/vidu/landing-page/banner2.c92f22ed.mp4",
+    },
+    {
+      id: 4,
+      image: "https://image01.cf.vidu.studio/vidu/landing-page/explosion.282c0ee1.png",
+      alt: "视频封面",
+      video: "https://image01.cf.vidu.studio/vidu/landing-page/explosion.e0203d2f.mp4",
+    },
+    {
+      id: 5,
+      image: "https://image01.cf.vidu.studio/vidu/landing-page/homeGlobal5.d26b1f17.jpg",
+      alt: "视频封面",
+      video: "https://image01.cf.vidu.studio/vidu/landing-page/home5Global.49842d43.mp4",
+    }
   ];
 
   const handleVideoClick = (id: number) => {
