@@ -1,4 +1,19 @@
+
 import { useState, useRef, useEffect } from "react";
+
+import image1 from "../assets/banner/travel.b359d872.png";
+import image2 from "../assets/banner/girl.49bc5b0b.png";
+import image3 from "../assets/banner/home1.d24295c9.png";
+import image4 from "../assets/banner/explosion.282c0ee1.png";
+import image5 from "../assets/banner/homeGlobal5.d26b1f17.jpg";
+
+
+import video1 from "../assets/banner/travel.a52da706.mp4";
+import video2 from "../assets/banner/girl.6e936562.mp4";
+import video3 from "../assets/banner/banner2.c92f22ed.mp4";
+import video4 from "../assets/banner/explosion.e0203d2f.mp4";
+import video5 from "../assets/banner/home5Global.49842d43.mp4";
+
 
 export default function Banner() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -8,33 +23,33 @@ export default function Banner() {
   const list = [
     {
       id: 1,
-      image: "https://image01.cf.vidu.studio/vidu/landing-page/travel.b359d872.png",
-      alt: "视频封面",
-      video: "https://image01.cf.vidu.studio/vidu/landing-page/travel.a52da706.mp4",
+      image: image1,
+      alt: "Travel",
+      video: video1,
     },
     {
       id: 2,
-      image: "https://image01.cf.vidu.studio/vidu/landing-page/girl.49bc5b0b.png",
-      alt: "视频封面", 
-      video: "https://image01.cf.vidu.studio/vidu/landing-page/girl.6e936562.mp4",
+      image: image2,
+      alt: "Girl", 
+      video: video2,
     },
     {
       id: 3,
-      image: "https://image01.cf.vidu.studio/vidu/landing-page/home1.d24295c9.png",
-      alt: "视频封面",
-      video: "https://image01.cf.vidu.studio/vidu/landing-page/banner2.c92f22ed.mp4",
+      image: image3,
+      alt: "Home",
+      video: video3,
     },
     {
       id: 4,
-      image: "https://image01.cf.vidu.studio/vidu/landing-page/explosion.282c0ee1.png",
-      alt: "视频封面",
-      video: "https://image01.cf.vidu.studio/vidu/landing-page/explosion.e0203d2f.mp4",
+      image: image4,
+      alt: "Explosion",
+      video: video4,
     },
     {
       id: 5,
-      image: "https://image01.cf.vidu.studio/vidu/landing-page/homeGlobal5.d26b1f17.jpg",
-      alt: "视频封面",
-      video: "https://image01.cf.vidu.studio/vidu/landing-page/home5Global.49842d43.mp4",
+      image: image5,
+      alt: "Home Global",
+      video: video5,
     }
   ];
 

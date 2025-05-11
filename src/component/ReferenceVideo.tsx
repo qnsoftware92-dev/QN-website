@@ -1,43 +1,96 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef } from "react";
 import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import { NextButton, PrevButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons";
+
+
+//video data
+import videoData1 from "../assets/ReferenceVideo/reference1.ff0b3a2f.mp4";
+import imageData1 from "../assets/ReferenceVideo/img2.6315c6c5.jpg";
+import imageDataItem1 from "../assets/ReferenceVideo/reference1-2.4fe0f230.png";
+import imageDataItem2 from "../assets/ReferenceVideo/reference1-1.bed97d57.png";
+import imageDataItem3 from "../assets/ReferenceVideo/reference1-3.b3b61c5d.png";
+
+import videoData2 from "../assets/ReferenceVideo/refrenceGlobal2.75cedbc6.mp4";
+import imageData2 from "../assets/ReferenceVideo/reference3.4908d3f5.jpg";
+import imageDataItem4 from "../assets/ReferenceVideo/referenceGlobal2-2.e3e27677.png";
+import imageDataItem5 from "../assets/ReferenceVideo/referenceGlobal2-3.38889907.png";
+import imageDataItem6 from "../assets/ReferenceVideo/referenceGlobal2-1.1e642f84.png";
+
+import videoData3 from "../assets/ReferenceVideo/reference3.096cbbdb.mp4";
+import imageData3 from "../assets/ReferenceVideo/img3.997ba760.jpg";
+import imageDataItem7 from "../assets/ReferenceVideo/reference3-1.d7e4ec5d.jpeg";
+import imageDataItem8 from "../assets/ReferenceVideo/reference3-2.4578997f.jpeg";
+import imageDataItem9 from "../assets/ReferenceVideo/reference3-3.38723d62.jpeg";
+
+
+import rowimage from "../assets/banner/lineArrow.d9b43180.png";
+
+
+// video data 2
+
+import videoData4 from "../assets/ReferenceVideo/imageGlobal1.47868a52.mp4";
+import imageData4 from "../assets/ReferenceVideo/imageGlobal1-1.832ed84d.png";
+import imageDataItem10 from "../assets/ReferenceVideo/imageGlobal1-2.1293d485.png";
+import imageDataItem11 from "../assets/ReferenceVideo/imageGlobal1-1.1485a09e.png";
+
+import videoData5 from "../assets/ReferenceVideo/man.23c0146e.mp4";
+import imageData5 from "../assets/ReferenceVideo/man.9afc3129.png";
+import imageDataItem12 from "../assets/ReferenceVideo/man-first.d12aa430.png";
+import imageDataItem13 from "../assets/ReferenceVideo/man-last.2dd4e940.png";
+
+import videoData6 from "../assets/ReferenceVideo/image3.d24df352.mp4";
+import imageData6 from "../assets/ReferenceVideo/image3-1.e941435c.png";
+import imageDataItem14 from "../assets/ReferenceVideo/image3-2.1d70f4a8.png";
+import imageDataItem15 from "../assets/ReferenceVideo/image3-1.e941435c.png";
+
+
+//reference video data
+
+
+import referenceImage1 from "../assets/ReferenceVideo/viduAbilityReStart.53b0efd2.png";
+import referenceImage2 from "../assets/ReferenceVideo/viduAbilityReEnd.338c0ecb.png";
+import referenceImage3 from "../assets/ReferenceVideo/viduAbilityStart.9fa2b9c4.png";
+import referenceImage4 from "../assets/ReferenceVideo/viduAbilityEnd.76c96cc4.png";
+
+
+
+
+
 const videoData = [
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/img2.6315c6c5.jpg",
     poster:
-      "https://image01.cf.vidu.studio/vidu/landing-page/img2.6315c6c5.jpg",
+      imageData1,
     video:
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference1.ff0b3a2f.mp4",
+      videoData1,
     images: [
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference1-2.4fe0f230.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference1-1.bed97d57.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference1-3.b3b61c5d.png",
+      imageDataItem1,
+      imageDataItem2,
+      imageDataItem3,
     ],
   },
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/reference3.4908d3f5.jpg",
     poster:
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference3.4908d3f5.jpg",
+      imageData2,
     video:
-      "https://image01.cf.vidu.studio/vidu/landing-page/refrenceGlobal2.75cedbc6.mp4",
+      videoData2,
     images: [
-      "https://image01.cf.vidu.studio/vidu/landing-page/referenceGlobal2-2.e3e27677.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/referenceGlobal2-3.38889907.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/referenceGlobal2-1.1e642f84.png",
+      imageDataItem4,
+      imageDataItem5,
+      imageDataItem6,
     ],
   },
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/img3.997ba760.jpg",
     poster:
-      "https://image01.cf.vidu.studio/vidu/landing-page/img3.997ba760.jpg",
+      imageData3,
     video:
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference3.096cbbdb.mp4",
+      videoData3,
     images: [
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference3-1.d7e4ec5d.jpeg",
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference3-2.4578997f.jpeg",
-      "https://image01.cf.vidu.studio/vidu/landing-page/reference3-3.38723d62.jpeg",
+      imageDataItem7,
+      imageDataItem8,
+      imageDataItem9,
     ],
   },
 ];
@@ -46,32 +99,34 @@ const imageToVideoData = [
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/imageGlobal1-1.832ed84d.png",
     poster:
-      "https://image01.cf.vidu.studio/vidu/landing-page/imageGlobal1-1.832ed84d.png",
+      imageData4,
     video:
-      "https://image01.cf.vidu.studio/vidu/landing-page/imageGlobal1.47868a52.mp4",
+      videoData4,
     images: [
-      "https://image01.cf.vidu.studio/vidu/landing-page/imageGlobal1-2.1293d485.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/imageGlobal1-1.1485a09e.png",
+      imageDataItem10,
+      imageDataItem11,
     ],
   },
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/man.9afc3129.png",
-    poster: "https://image01.cf.vidu.studio/vidu/landing-page/man.9afc3129.png",
-    video: "https://image01.cf.vidu.studio/vidu/landing-page/man.23c0146e.mp4",
+    poster:
+      imageData5,
+    video:
+      videoData5,
     images: [
-      "https://image01.cf.vidu.studio/vidu/landing-page/man-first.d12aa430.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/man-last.2dd4e940.png",
+      imageDataItem12,
+      imageDataItem13,
     ],
   },
   {
     id: "video-https://image01.cf.vidu.studio/vidu/landing-page/image3-1.e941435c.png",
     poster:
-      "https://image01.cf.vidu.studio/vidu/landing-page/image3-1.e941435c.png",
+      imageData6,
     video:
-      "https://image01.cf.vidu.studio/vidu/landing-page/image3.d24df352.mp4",
+      videoData6,
     images: [
-      "https://image01.cf.vidu.studio/vidu/landing-page/image3-2.1d70f4a8.png",
-      "https://image01.cf.vidu.studio/vidu/landing-page/image3-1.e941435c.png",
+      imageDataItem14,
+      imageDataItem15,
     ],
   },
 ];
@@ -82,7 +137,7 @@ const ContentFooterData1 = [
     description:
       "Upload up to 7 images to keep people, objects, and scenes consistent throughout your video.",
     image:
-      "https://image01.cf.vidu.studio/vidu/landing-page/viduAbilityReStart.53b0efd2.png",
+      referenceImage1,
     href: "/create/character2video",
     svg: (
       <svg
@@ -118,7 +173,7 @@ const ContentFooterData1 = [
     description:
       "Save characters, props, and scenes in My References for effortless reuse.",
     image:
-      "https://image01.cf.vidu.studio/vidu/landing-page/viduAbilityReEnd.338c0ecb.png",
+      referenceImage2,
     href: "/create/character2video",
     svg: (
       <svg
@@ -157,7 +212,7 @@ const ContentFooterData2 = [
     description:
       "Upload the first and last frame images, and Vidu AI will create smooth transitions in between.",
     image:
-      "https://image01.cf.vidu.studio/vidu/landing-page/viduAbilityStart.9fa2b9c4.png",
+      referenceImage3,
     href: "/create/img2video",
     svg: (
       <svg
@@ -214,7 +269,7 @@ const ContentFooterData2 = [
     description:
       "Transform anime art into fluid animations with lifelike character motions.",
     image:
-      "https://image01.cf.vidu.studio/vidu/landing-page/viduAbilityEnd.76c96cc4.png",
+      referenceImage4,
     href: "/create/img2video",
     svg: (
       <svg
@@ -243,8 +298,6 @@ const ContentFooterData2 = [
 ];
 
 export default function ReferenceVideo() {
-  const swiperRef = useRef(null);
-  const swiperRef2 = useRef(null);
 
   const ContentFooter = () => (
     <>
@@ -377,7 +430,6 @@ const ContentFooterItem = ({
   title,
   description,
   image,
-  href,
   svg,
 }: {
   title: string;
@@ -387,7 +439,7 @@ const ContentFooterItem = ({
   svg: React.ReactNode;
 }) => (
   <div className="relative flex h-[312px] w-[587px] flex-col justify-between overflow-hidden rounded-[20px] bg-system-white12 px-10 pt-6 pb-10 max-md:px-4">
-    <div className="z-10 flex flex-col items-start">
+    <div className="z-10 flex flex-col items-start text-white">
       {svg}
       <h3 className="mt-4 font-semibold text-[18px] text-white">{title}</h3>
       <div className="mt-3 w-[288px] text-[14px] text-white opacity-65 max-lg:w-[200px]">
@@ -396,7 +448,7 @@ const ContentFooterItem = ({
     </div>
     <a
       target="_self"
-      className="z-10 flex w-fit cursor-pointer items-center gap-2 rounded-full border-[2px] border-white border-solid px-6 py-3 text-[14px]"
+      className="z-10 flex w-fit cursor-pointer items-center gap-2 rounded-full border-[2px] border-white border-solid px-6 py-3 text-[14px] text-white"
       href="/create/img2video"
     >
       Get Started
@@ -596,7 +648,7 @@ const ContentBodyItem = ({
                                 data-nimg="1"
                                 className="size-[88px] max-md:size-[10px]"
                                 style={{ color: "transparent" }}
-                                src="https://www.vidu.com/_next/static/media/lineArrow.d9b43180.png"
+                                src={rowimage}
                               />
                             </div>
                             <img
@@ -760,7 +812,7 @@ const ContentBodyItemMobile = (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
-      className="flex gap-8 hidden max-:flex"
+      className="gap-8 hidden max-md:flex"
     >
       <div className="relative overflow-hidden" ref={emblaRef}>
         <div className="flex">
@@ -802,7 +854,7 @@ const ContentBodyItemMobile = (
                                 data-nimg="1"
                                 className="size-[88px] max-md:size-[10px]"
                                 style={{ color: "transparent" }}
-                                src="https://www.vidu.com/_next/static/media/lineArrow.d9b43180.png"
+                                src={rowimage}
                               />
                             </div>
                             <img

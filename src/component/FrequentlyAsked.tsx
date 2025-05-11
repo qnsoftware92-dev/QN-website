@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+
+
+
 export default function FrequentlyAsked() {
   return (
     <section className="relative flow-root h-full max-md:h-auto">
@@ -9,7 +12,7 @@ export default function FrequentlyAsked() {
             <h2 className="w-[323px] font-medium text-[54px] leading-none max-md:text-center max-md:text-[36px] max-lg:text-[48px] text-white">
               Frequently Asked Questions
             </h2>
-            <div className="mt-6 w-[396px] text-[14px] text-system-text03 leading-7 max-md:mt-6 max-md:mb-[22px] max-md:w-[259px] max-md:text-center max-md:leading-[22px] max-lg:w-[320px] text-white">
+            <div className="mt-6 w-[396px] text-[14px] text-system-text03 leading-7 max-md:mt-6 max-md:mb-[22px] max-md:w-[259px] max-md:text-center max-md:leading-[22px] max-lg:w-[320px]">
               Find answers to common questions about Vidu AI, including its
               features, usage, pricing, safety, and how to get support.
             </div>
@@ -185,15 +188,7 @@ const FAQItem = () => {
               to life effortlessly.
             </div>
           </div>
-          <div>
-            <div className="py-3 text-[14px] leading-5 opacity-60 max-md:text-[12px] max-md:leading-[14px]">
-              With robust semantic understanding and fast generation speed, Vidu
-              eliminates production complexities, allowing creators to focus
-              solely on their ideas. From low resolution to stunning 1080p
-              outputs, Vidu offers unmatched flexibility and efficiency,
-              providing a broader canvas for creativity.
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>

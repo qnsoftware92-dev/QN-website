@@ -1,62 +1,74 @@
 import { useState, useEffect } from "react";
 
+import image1 from "../assets/comunity/image13.badbcb23.png";
+import image2 from "../assets/comunity/image1.ead1ef76.png";
+import image3 from "../assets/comunity/image12.546b3101.png";
+import image4 from "../assets/comunity/image4.16d51f78.png";
+import image5 from "../assets/comunity/image6.f548cbbd.png";
+import image6 from "../assets/comunity/image8.f681376b.png";
+import image7 from "../assets/comunity/image10.47ea3f9c.png";
+import image8 from "../assets/comunity/image11.5c78da13.png";
+import image9 from "../assets/comunity/image15.7604e99c.png";
+import image10 from "../assets/comunity/image14.6c64cea1.png";
+
+
 const data = [
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image13.badbcb23.png",
+    src: image1,
     alt: "global_title13",
     position: "top-[8%] left-[6%]",
     height: "h-[25.5%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image1.ead1ef76.png", 
+    src: image2, 
     alt: "global_title1",
     position: "bottom-[13%] right-[2%]",
     height: "h-[16.8%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image12.546b3101.png",
+    src: image3,
     alt: "global_title12", 
     position: "top-[65%] left-[-1%]",
     height: "h-[26.7%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image4.16d51f78.png",
+    src: image4,
     alt: "global_title4",
     position: "bottom-[40%] right-[5%]",
     height: "h-[35.5%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image6.f548cbbd.png",
+    src: image5,
     alt: "global_title5",
     position: "bottom-[20%] left-[23%]",
     height: "h-[21.2%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image8.f681376b.png",
+    src: image6,
     alt: "global_title8",
     position: "bottom-[22%] right-[22%]",
     height: "h-[22.6%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image10.47ea3f9c.png",
+    src: image7,
     alt: "global_title10",
     position: "top-[30%] left-[1%]",
     height: "h-[15%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image11.5c78da13.png",
+    src: image8,
     alt: "global_title11",
     position: "top-[25%] left-[17%]",
     height: "h-[29%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image15.7604e99c.png",
+    src: image9,
     alt: "global_title15",
     position: "top-[49%] right-[-4%]",
     height: "h-[19%]"
   },
   {
-    src: "https://image01.cf.vidu.studio/vidu/landing-page/image14.6c64cea1.png",
+    src: image10,
     alt: "global_title14",
     position: "top-[50%] left-[-2%]",
     height: "h-[5.3%]"
@@ -98,10 +110,10 @@ export default function Comunity() {
                             <svg width="1em" height="1em" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="m-2 size-6">
                                 <path d="M15.083 17.5731C14.8161 17.6397 14.5474 17.6988 14.2771 17.75C12.8118 18.0319 11.3058 18.0262 9.84274 17.7331C9.58618 17.6819 9.22306 17.5919 8.75525 17.4644L7.22214 19.5C3.43842 19.3759 2 16.7857 2 16.7857C2 11.0357 4.4656 6.3745 4.4656 6.3745C6.93058 4.44764 9.27618 4.50014 9.27618 4.50014L9.94711 5.39326C10.009 5.38451 10.0712 5.37857 10.1334 5.37638C11.412 5.20316 12.7085 5.20884 13.9855 5.39326L14.7218 4.50014C14.7218 4.50014 17.0689 4.44764 19.5326 6.37637C19.5326 6.37637 21.9998 11.0357 21.9998 16.7857C21.9998 16.7857 20.5433 19.3741 16.7592 19.5L15.083 17.5716V17.5731Z" fill="currentColor"></path>
                             </svg>
-                            <div className="font-semibold text-[14px] text-white text-white">Join Discord</div>
+                            <div className="font-semibold text-[14px] text-white">Join Discord</div>
                         </div>
                         <a target="_self" className="pointer-events-auto flex cursor-pointer items-center justify-center rounded-full border-[2px] border-system-white24 px-8 py-2" href="/cpp">
-                            <div className="font-semibold text-[14px] text-white leading-[28px] text-white">Apply for CPP</div>
+                            <div className="font-semibold text-[14px]  leading-[28px] text-white">Apply for CPP</div>
                         </a>
                     </div>
                 </div>

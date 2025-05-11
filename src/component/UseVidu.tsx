@@ -1,42 +1,44 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { useState, useEffect, useRef } from "react";
 
+import video1 from "../assets/useVidu/anime.9e7436b5.mp4";
+import video2 from "../assets/useVidu/advertising.72394969.mp4";
+import video3 from "../assets/useVidu/socialMedia.348ef153.mp4";
+import video4 from "../assets/useVidu/tourismGlobal.006a1326.mp4";
+import video5 from "../assets/useVidu/film.f3db79f8.mp4";
+
 const data = [
   {
-    video: "anime.9e7436b5.mp4",
+    video: video1,
     image: "creat2.77ef334f.png",
     title: "Anime",
     opacity: ""
   },
   {
-    video: "advertising.72394969.mp4",
+    video: video2,
     image: "creat4.f0bfb912.jpg", 
     title: "Advertising",
     opacity: "opacity-20"
   },
   {
-    video: "socialMedia.348ef153.mp4",
+    video: video3,
     image: "creat3.2c5d5ce2.jpg",
     title: "Social Media", 
     opacity: "opacity-20"
   },
   {
-    video: "tourismGlobal.006a1326.mp4",
+    video: video4,
     image: "create6.08093e56.jpg",
     title: "Culture & Tourism",
     opacity: "opacity-20"
   },
   {
-    video: "film.f3db79f8.mp4",
+    video: video5,
     image: "creat5.6937842c.jpg",
     title: "Film",
     opacity: "opacity-20"
   }
-].map(item => ({
-  ...item,
-  video: `https://image01.cf.vidu.studio/vidu/landing-page/${item.video}`,
-  image: `https://image01.cf.vidu.studio/vidu/landing-page/${item.image}`
-}));
+]
 
 export default function UseVidu() {
   const [selectedIndex, setSelectedIndex] = useState(0);

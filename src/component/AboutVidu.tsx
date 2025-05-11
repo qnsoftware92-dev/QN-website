@@ -1,5 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import quote from "../assets/banner/quote.bad43e01.png";
 const testimonialsExample = [
     {
       text: "Vidu brings us something new and really interesting: the Multi Entity Consistency.",
@@ -11,8 +12,7 @@ const testimonialsExample = [
       displayName2: "Future AI World",
       avatar2: "https://image01.cf.vidu.studio/vidu/landing-page/userImageGlobal2.08c79ae5.jpg",
     },
-    // Removed duplicate testimonials to avoid repetition
-  ] // Replicate first testimonial 10 times
+  ] 
 
 const testimonials = testimonialsExample.concat(Array(10).fill(testimonialsExample[0]));
 export default function AboutVidu() {
@@ -56,7 +56,7 @@ export default function AboutVidu() {
         data-nimg="1"
         className="h-[32px] py-1 max-md:h-[22px] max-md:py-0.5"
         style={{ color: "transparent" }}
-        src="https://www.vidu.com/_next/static/media/quote.bad43e01.png"
+        src={quote}
       />
     );
 
@@ -105,7 +105,7 @@ export default function AboutVidu() {
       </svg>
     );
 
-    const TestimonialContent = ({ text, username, displayName, avatar }) => (
+    const TestimonialContent = ({ text, username, displayName, avatar }: { text: string, username: string, displayName: string, avatar: string }) => (
       <div className="w-[400px] shrink-0 rounded-xl border-[1px] border-system-white08 bg-[linear-gradient(180deg,rgba(153,153,153,0.08)0%,rgba(255,255,255,0.08)100%)] p-6 max-md:w-[280px] max-md:p-4">
         <div className="flex justify-between">
           <QuoteIcon />

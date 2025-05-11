@@ -1,5 +1,76 @@
+import { motion } from "motion/react";
+import video1 from "../assets/teamplateForEveryone/095101-ALSj2p44vgsSlhix.mp4";
+
+import video2 from "../assets/teamplateForEveryone/095646-X5UcGAj6dstrVX3i.mp4";
+import video3 from "../assets/teamplateForEveryone/102017-RWqVSK5tWegDwrtU.mp4";
+import video4 from "../assets/teamplateForEveryone/095321-XuzCopxVHsMJk86b.mp4";
+import video5 from "../assets/teamplateForEveryone/frenchKiss.195aace5.mp4";
+import video6 from "../assets/teamplateForEveryone/053228-BoNeedLtLct7BRkX.mp4";
+import video7 from "../assets/teamplateForEveryone/tamplate2.c40fe98c.mp4";
+import video8 from "../assets/teamplateForEveryone/tamplate3.45cf65a3.mp4";
+
 export default function TeamplateForEveryone() {
-    return (
+  const videoItems = [
+    {
+      className: "absolute top-[3%] left-[5%] w-[27%] max-sm:w-[35%] max-sm:left-[40%]",
+      src: video1,
+    },
+    {
+      className: "absolute top-[0%] right-[20%] w-[18%] max-sm:w-[60%] max-sm:right-[50%] max-sm:top-[10%]",
+      src: video2,
+    },
+    {
+      className: "absolute top-[30%] right-[40%] w-[10%] max-sm:right-[-10%] max-sm:top-[20%] max-sm:w-[30%]",
+      src: video3,
+    },
+    {
+      className: "absolute top-[43%] right-[25%] w-[14%] max-sm:top-[50%] max-sm:right-[40%] max-sm:w-[32%]",
+      src: video4,
+    },
+    {
+      className: "absolute left-[25%] top-[32%] w-[30%] z-10 max-sm:hidden",
+      src: video5,
+    },
+    {
+      className: "absolute bottom-[10%] right-[0%] w-[25%] max-sm:hidden",
+      src: video6,
+    },
+    {
+      className: "absolute bottom-[18%] left-[16%] w-[10%] max-sm:hidden",
+      src: video7,
+    },
+    {
+      className: "absolute bottom-[10%] left-[40%] w-[19%] max-sm:hidden",
+      src: video8,
+    }
+  ];
+
+  const VideoComponent = ({ className, src }: { className: string; src: string }) => (
+    <motion.div
+    initial={{ opacity: 0, y: 100 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    viewport={{ once: true }}
+
+    className={className}>
+      <div className="relative aspect-video h-full w-full">
+        <video 
+          autoPlay 
+          loop 
+          muted
+          playsInline 
+          webkit-playsinline="true" 
+          x5-playsinline="true"
+          preload="auto"
+          className="h-full w-full object-cover object-center block"
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      </div>
+    </motion.div>
+  );
+
+  return (
     <section className="relative flow-root h-full max-md:h-auto">
       <div className="relative h-auto w-full overflow-hidden">
         <div className="flex flex-col items-center justify-start overflow-hidden pt-[160px] max-md:pt-24">
@@ -12,71 +83,18 @@ export default function TeamplateForEveryone() {
           </div>
           <h2 className="mb-3 text-center font-medium text-[48px] max-md:text-[36px] max-md:leading-none text-white">Templates for Everyone</h2>
           <div className="my-4 hidden h-[2px] w-[50px] bg-system-white24 max-md:block"></div>
-          <div className="mb-8 font-normal text-base text-system-white opacity-65 max-md:text-center max-md:text-[14px] text-white">Use Vidu's templates to create fun, viral videos—whether it's kissing, hugging, blossom effects, AI outfits, and more.</div>
+          <div className="mb-8 font-normal text-base text-system-white opacity-65 max-md:text-center max-md:text-[14px]">Use Vidu's templates to create fun, viral videos—whether it's kissing, hugging, blossom effects, AI outfits, and more.</div>
           <div className="flex items-center justify-center max-md:absolute max-md:right-[calc(50%-77px)] max-md:bottom-[69px]">
             <a target="_self" className="z-10 flex cursor-pointer items-center justify-center rounded-full bg-system-blue03 px-8 py-3 font-medium text-[14px] text-system-white leading-[30px]" href="/templates">Create Now</a>
           </div>
         </div>
 
         <div className="relative h-[700px] max-sm:h-[455px] max-md:h-[550px]">
-          <div className="absolute top-[3%] left-[5%] w-[27%] max-sm:w-[35%] max-sm:left-[40%]" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/template/095101-ALSj2p44vgsSlhix.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute top-[0%] right-[20%] w-[18%] max-sm:w-[60%] max-sm:right-[50%] max-sm:top-[10%]" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/template/095646-X5UcGAj6dstrVX3i.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute top-[30%] right-[40%] w-[10%] max-sm:right-[-10%] max-sm:top-[20%] max-sm:w-[30%]" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/template/102017-RWqVSK5tWegDwrtU.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute top-[43%] right-[25%] w-[14%] max-sm:top-[50%] max-sm:right-[40%] max-sm:w-[32%]" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/template/095321-XuzCopxVHsMJk86b.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute left-[25%] top-[32%] w-[30%] z-10 max-sm:hidden" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/landing-page/frenchKiss.195aace5.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute bottom-[10%] right-[0%] w-[25%] max-sm:hidden" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/template/053228-BoNeedLtLct7BRkX.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute bottom-[18%] left-[16%] w-[10%] max-sm:hidden" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/landing-page/tamplate2.c40fe98c.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-          <div className="absolute bottom-[10%] left-[40%] w-[19%] max-sm:hidden" style={{opacity: 1, transform: 'none'}}>
-            <div className="relative aspect-video h-full w-full">
-              <video autoPlay loop playsInline webkit-playsinline="true" x5-playsinline="true" className="h-full w-full object-cover object-center block">
-                <source src="https://image01.cf.vidu.studio/vidu/landing-page/tamplate3.45cf65a3.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
+          {videoItems.map((item, index) => (
+            <VideoComponent key={index} className={item.className} src={item.src} />
+          ))}
         </div>
       </div>
     </section>
-    )
+  );
 }
